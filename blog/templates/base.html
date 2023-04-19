@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}My Blog{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" style="padding: 5px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center" style="display: flex; align-items: center;">
+          <a href="{% url 'home' %}" class="btn btn-link navbar-btn">Home</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
+          <a href="{% url 'profile' %}" class="btn btn-link navbar-btn">Profile</a>
+        </div>
+        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
+          <a href="{% url 'new_post' %}" class="btn btn-link navbar-btn">New post</a>
+        </div>
+        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
+          <a href="{% url 'user_posts' %}" class="btn btn-link navbar-btn">My posts</a>
+        </div>
+        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
+          <a href="{% url 'feed' %}" class="btn btn-link navbar-btn">Feed</a>
+        </div>
+        <div class="col-xs-12 col-sm-1 text-right" style="display: flex; align-items: center;">
+          <a href="{% url 'logout' %}" class="btn btn-link navbar-btn">Logout</a>
+        </div>
+        {% else %}
+        <div class="col-xs-12 col-sm-6 text-right" style="display: flex; align-items: center;">
+          <a href="{% url 'login' %}" class="btn btn-link navbar-btn">Login</a>
+          <a href="{% url 'register' %}" class="btn btn-link navbar-btn">Register</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

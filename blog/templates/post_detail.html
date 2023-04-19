@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>{{ post.title }}</h1>
+        <p class="lead">{{ post.author }} | {{ post.published_date }}</p>
+        <p>{{ post.text }}</p>
+        <hr>
+        <h4>Comments</h4>
+        {% for comment in comments %}
+          <div class="comment">
+            <p>{{ comment.author }} | {{ comment.published_date }}</p>
+            <p>{{ comment.text }}</p>
+          </div>
+        {% empty %}
+          <p>No comments yet.</p>
+        {% endfor %}
+        <hr>
+        <h4>Add a comment</h4>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Add comment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
