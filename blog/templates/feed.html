@@ -1,12 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>All Posts</h1>
-  {% for post in posts %}
-    <div class="post">
-      <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-      <p>{{ post.author.username }} - {{ post.published_date }}</p>
-      <p>{{ post.text }}</p>
+  <div class="container">
+    <h1>All Posts</h1>
+    <div class="post-container">
+      {% for post in posts %}
+        <div class="post">
+          <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+          <p><i class="far fa-user"></i> {{ post.author.username }} - <i class="far fa-calendar"></i> {{ post.created_at }}</p>
+          <p>{{ post.text }}</p>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+    <div class="loading" style="display: none;"><i class="fas fa-spinner fa-spin"></i></div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script>
+    var page = 1;
+    var fetching = false;
+
+    $(window).scroll(function() {
+      if($(window).scrollTop() + $(window).height() >= $(document).height() && !fetching) {
+        fetching = true;
+        $('.loading').show();
+        $.ajax({
+          url: '/blog/feed/' + page + '/',
+          dataType: 'html',
+          success: function(data) {
+            $('.post-container').append(data);
+            page++;
+            fetching = false;
+            $('.loading').hide();
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          }
+        });
+      }
+    });
+  </script>
 {% endblock %}

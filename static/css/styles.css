@@ -1,49 +1,66 @@
+/* Global styles */
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #1c1c1c;
-    color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f2f2f2;
-}
-
-p {
-    font-size: 18px;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f7fafc;
+    color: #2e3440;
+  }
+  
+  /* Sidebar styles */
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #d8dee9;
+    padding: 20px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar a {
+    display: block;
     margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    font-weight: bold;
+    color: #2e3440;
     text-decoration: none;
-    color: #f2f2f2;
-    background-color: #1c1c1c;
-    border-radius: 5px;
-    border: 2px solid #f2f2f2;
-    transition: background-color 0.3s ease;
-}
+    font-size: 16px;
+  }
+  
+  .sidebar a:hover {
+    color: #81a1c1;
+  }
+  
+  /* Add animation to sidebar on hover */
+  
+  .sidebar:hover {
+    width: 250px;
+  }
+  
+  /* Add effect to sidebar links on hover */
 
-a:hover {
-    background-color: #f2f2f2;
-    color: #1c1c1c;
-}
+.sidebar-link:hover i {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Add effect to logout link */
+  
+  .logout-link {
+    margin-top: 20px;
+  }
+  
+  .logout-link:hover i {
+    transform: rotate(360deg);
+    transition: all 0.3s ease;
+  }
+  /* Add animation to buttons on hover */
+  
+  .btn {
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }

@@ -3,48 +3,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}My Blog{% endblock %}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://kit.fontawesome.com/6e56b66065.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-bottom" style="padding: 5px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3 text-center" style="display: flex; align-items: center;">
-          <a href="{% url 'home' %}" class="btn btn-link navbar-btn">Home</a>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-lg-2 col-md-3 col-sm-4 sidebar">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{% url 'profile' %}" class="sidebar-link">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}" class="sidebar-link">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'feed' %}" class="sidebar-link">
+                            <i class="fas fa-rss"></i>
+                            Feed
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'new_post' %}" class="sidebar-link">
+                            <i class="fas fa-pencil-alt"></i>
+                            New Post
+                        </a>
+                    </li>
+                    <li class="logout">
+                        <a href="{% url 'logout' %}" class="logout-link ">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-8 content">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-        {% if user.is_authenticated %}
-        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
-          <a href="{% url 'profile' %}" class="btn btn-link navbar-btn">Profile</a>
-        </div>
-        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
-          <a href="{% url 'new_post' %}" class="btn btn-link navbar-btn">New post</a>
-        </div>
-        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
-          <a href="{% url 'user_posts' %}" class="btn btn-link navbar-btn">My posts</a>
-        </div>
-        <div class="col-xs-12 col-sm-2 text-center" style="display: flex; align-items: center;">
-          <a href="{% url 'feed' %}" class="btn btn-link navbar-btn">Feed</a>
-        </div>
-        <div class="col-xs-12 col-sm-1 text-right" style="display: flex; align-items: center;">
-          <a href="{% url 'logout' %}" class="btn btn-link navbar-btn">Logout</a>
-        </div>
-        {% else %}
-        <div class="col-xs-12 col-sm-6 text-right" style="display: flex; align-items: center;">
-          <a href="{% url 'login' %}" class="btn btn-link navbar-btn">Login</a>
-          <a href="{% url 'register' %}" class="btn btn-link navbar-btn">Register</a>
-        </div>
-        {% endif %}
-      </div>
     </div>
-  </nav>
-  <div class="container">
-    {% block content %}
-    {% endblock %}
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

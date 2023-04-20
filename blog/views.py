@@ -77,7 +77,7 @@ def post_detail(request, pk):
         form = CommentForm()
     return render(request, 'post_detail.html', {'post': post, 'comments': comments, 'form': form})
 
-
+# фильтрация и пагинация
 def feed(request):
     posts = Post.objects.all()
     return render(request, 'feed.html', {'posts': posts})
