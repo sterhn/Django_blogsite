@@ -6,61 +6,69 @@ body {
     color: #2e3440;
   }
   
-  /* Sidebar styles */
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 200px;
-    background-color: #d8dee9;
-    padding: 20px;
-    overflow-y: auto;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebar a {
-    display: block;
-    margin-bottom: 20px;
-    color: #2e3440;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .sidebar a:hover {
-    color: #81a1c1;
-  }
-  
-  /* Add animation to sidebar on hover */
-  
-  .sidebar:hover {
-    width: 250px;
-  }
-  
-  /* Add effect to sidebar links on hover */
+/* Sidebar styles */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #d8dee9;
+  padding: 20px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 20px;
+  color: #2e3440;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar a:hover {
+  color: #81a1c1;
+}
+
+/* Add animation to sidebar on hover */
+
+.sidebar:hover {
+  width: 250px;
+}
+
+/* Add effect to sidebar links on hover */
 
 .sidebar-link:hover i {
-    transform: scale(1.2);
-    transition: all 0.3s ease;
-  }
-  
-  /* Add effect to logout link */
-  
-  .logout-link {
-    margin-top: 20px;
-  }
-  
-  .logout-link:hover i {
-    transform: rotate(360deg);
-    transition: all 0.3s ease;
-  }
-  /* Add animation to buttons on hover */
-  
-  .btn {
-    transition: all 0.3s ease;
-  }
-  
-  .btn:hover {
-    transform: scale(1.1);
-  }
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* Add effect to logout link */
+
+.logout-link {
+  margin-top: 20px;
+}
+
+.logout-link:hover i {
+  transform: rotate(360deg);
+  transition: all 0.3s ease;
+}
+/* Add animation to buttons on hover */
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+/* Profile picture*/
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}

@@ -21,7 +21,7 @@ class Comment(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.text
+        return self.content
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.post.id)])

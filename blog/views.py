@@ -12,8 +12,6 @@ from .models import Post, Comment
 def welcome(request):
     return render(request, 'welcome.html')
 
-def home(request):
-    return render(request, 'home.html')
 
 @csrf_exempt
 @login_required(login_url=reverse_lazy('login'))
@@ -71,5 +69,5 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
 # фильтрация и пагинация
 def feed(request):
-    posts = Post.objects.all()
+    posts = Post.objects.order_by('-created_at')
     return render(request, 'feed.html', {'posts': posts})

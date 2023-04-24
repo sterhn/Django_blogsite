@@ -15,13 +15,19 @@
             <div class="col-lg-2 col-md-3 col-sm-4 sidebar">
                 <ul class="list-unstyled">
                     <li>
+                        <div>
+                            <img src="{{ user.profile.image.url }}" alt="Profile picture" class="profile-pic">
+                            <h4>{{ request.user.username }}</h4>
+                        </div>
+                    </li>
+                    <li>
                         <a href="{% url 'profile' %}" class="sidebar-link">
                             <i class="fas fa-user"></i>
                             Profile
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'home' %}" class="sidebar-link">
+                        <a href="{% url 'user_posts' %}" class="sidebar-link">
                             <i class="fas fa-home"></i>
                             Home
                         </a>
