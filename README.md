@@ -1,4 +1,5 @@
 ## Django blogsite
+Blogsite made with Django
 ---
 WIP
 #### Features
