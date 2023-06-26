@@ -1,7 +1,7 @@
 ## Django blogsite
 ---
 WIP
-#### Feautures
+#### Features
 - User profile
 - You can create posts and comments
 - Styled with bootsrtap
